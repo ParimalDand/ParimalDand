@@ -1,0 +1,46 @@
+
+# number guessing Game
+#importing random module
+import random
+# upper range is user defined
+# lower range or starting is zero
+
+upper_bound = input("enter a number : ")
+if upper_bound.isdigit():
+    upper_bound = int(upper_bound)
+#checking the upper bond is digit is true making it int
+
+    if upper_bound <=0:
+#checking for condition
+        print("please enter a number greater than zero.")
+
+        quit()
+else:
+    print("please enter a number next time .")
+    quit()
+
+# using the bound in which a user can guess which is from 0 to user defined
+random_number = random.randint(0,upper_bound)
+# checking how many guesser user takes to guess a number
+guesses = 0
+
+while True:
+    guesses +=1
+    user_guess = input("make a guess: ")
+    if user_guess.isdigit():
+        user_guess = int(user_guess)
+
+
+    else:
+        print("please enter a number next time .")
+        continue
+    if user_guess == random_number:
+        print("you got it ")
+        break
+
+    elif user_guess > random_number:
+        print("you were above the number")
+    else:
+        print("you were below the number")
+
+print("you got it in ",guesses,"guesses")
